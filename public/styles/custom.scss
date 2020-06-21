@@ -1,0 +1,122 @@
+$primary: #00bdaa;
+$secondary: #fe346e;
+$warning: #f1eac7;
+// $body-color: #111;
+
+$primary-tint: #e7f9f7;
+$primary-tint-two: #d0f3ef;
+$secondary-tint: #ffe1e9;
+$palette-one: #00bdaa;
+$palette-four: #f1eac7;
+
+// $body-bg: #f8f9f9;
+html {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  -ms-font-smoothing: antialiased !important;
+}
+
+.badge-custom-secondary {
+  background-color: $secondary-tint;
+  color: $secondary;
+}
+.badge-custom-primary {
+  background-color: $primary-tint;
+  color: $primary;
+}
+.btn-custom-secondary {
+  background-color: $secondary-tint !important;
+  color: $secondary !important;
+}
+
+button.btn {
+  height: 48px;
+  min-width: 138px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn.btn-sm {
+  height: 30px;
+  font-weight: 500;
+}
+
+input.form-control,
+textarea.form-control,
+select.form-control {
+  height: 48px;
+  font-size: 17px;
+}
+
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+  border: 2px solid $primary;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.card {
+  &.border {
+    border: 1px solid #e4e8ec !important;
+  }
+}
+
+.ft-14 {
+  font-size: 14px;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.icon-wrap {
+  width: 62px;
+  height: 62px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-white {
+  background: #fff;
+}
+.bg-grey {
+  background: #f8f8f9;
+}
+
+.light-grey {
+  background-color: #f6f7f9;
+}
+
+.light-red {
+  background-color: #fcf2f4;
+}
+
+.secondary-bg {
+  background-color: $secondary-tint;
+}
+
+.primary-tint {
+  background-color: $primary-tint !important;
+}
+
+.light-green {
+  background-color: #ebf7f8;
+}
+
+.warning-bg {
+  background-color: $palette-four;
+}
+
+#nav-tab {
+  display: -webkit-box;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.carousel-root div:nth-child(2) {
+  border: 1px solid #e4e8ec !important;
+}
