@@ -27,7 +27,7 @@ const DefaultLayout = ({ children }) => {
         ></meta>
         <meta
           itemprop="image"
-          content="/images/shoplex_socialpreview.jpg"
+          content="https://res.cloudinary.com/davecode01/image/upload/v1593305094/Shoplex_social_preview_kpajsc.jpg"
         ></meta>
 
         <meta name="twitter:card" content="summary_large_image"></meta>
@@ -36,7 +36,7 @@ const DefaultLayout = ({ children }) => {
         <meta name="twitter:url" content="https://shoplexnigeria.com"></meta>
         <meta
           name="twitter:image"
-          content="/images/shoplex_socialpreview.jpg"
+          content="https://res.cloudinary.com/davecode01/image/upload/v1593305094/Shoplex_social_preview_kpajsc.jpg"
         ></meta>
 
         <meta
@@ -48,13 +48,13 @@ const DefaultLayout = ({ children }) => {
         <meta name="twitter:domain" content="@shoplexng"></meta>
         <meta
           name="twitter:image:src"
-          content="/images/shoplex_socialpreview.jpg"
+          content="https://res.cloudinary.com/davecode01/image/upload/v1593305094/Shoplex_social_preview_kpajsc.jpg"
         ></meta>
         <meta property="og:title" content="Shoplex"></meta>
         <meta property="og:url" content="https://shoplexnigeria.com"></meta>
         <meta
           property="og:image"
-          content="/images/shoplex_socialpreview.jpg"
+          content="https://res.cloudinary.com/davecode01/image/upload/v1593305094/Shoplex_social_preview_kpajsc.jpg"
         ></meta>
         <meta
           property="og:description"

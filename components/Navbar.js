@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => (
   <div className="fixed-top">
-    <div className="d-flex align-items-center sticky-top justify-content-center navbar-notice">
+    {/* <div className="d-flex align-items-center sticky-top justify-content-center navbar-notice">
       <div className="container text-muted text-center">
         <div className="d-flex justify-content-center">
           <a href="">
@@ -18,9 +18,8 @@ const Navbar = () => (
             <span className="fab fa-linkedin text-muted mr-4"></span>
           </a>
         </div>
-        {/* Header Links */}
       </div>
-    </div>
+    </div> */}
 
     <nav className="navbar main-nav navbar-expand-lg navbar-expand-sm navbar-light border-bottom">
       <div className="container">
