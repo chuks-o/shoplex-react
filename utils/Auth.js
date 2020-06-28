@@ -1,29 +1,37 @@
 import cookie from "js-cookie";
 import Router from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import nextCookie from "next-cookies";
-import fetch from "isomorphic-unfetch";
-import { baseUrl } from "../utils/variables";
-
-export const login = ({ token, user }) => {
-  if (!token || !user) return false;
-
-  cookie.set("token", token, { expires: 1 / 8 }); // expires in 3 hours.
-  cookie.set("accountId", user.id);
-
-  Router.push("/account");
-};
 
 export const storage = {
   getItem(key) {
     return window.localStorage.getItem(key);
   },
   setItem(key, value) {
-    return window.localStorage.setItem(key, value);
+    window.localStorage.setItem(key, value);
   },
   removeItem(key) {
-    return window.localStorage.removeItem(key);
+    window.localStorage.removeItem(key);
   },
+};
+
+export const login = ({ token, user }) => {
+  if (!token || !user) return false;
+
+  cookie.set("token", token, { expires: 1 / 8 }); // expires in 3 hours.
+  cookie.set("accountId", user.id);
+  storage.setItem("user", JSON.stringify(user));
+
+  Router.push("/account");
+};
+
+export const logout = () => {
+  cookie.remove("token");
+  cookie.remove("accountId");
+  storage.removeItem("user");
+  // to support logging out from all windows
+  storage.setItem("logout", Date.now());
+  Router.push("/login");
 };
 
 export const auth = (ctx) => {
@@ -36,22 +44,16 @@ export const auth = (ctx) => {
   }
 
   if (!token) {
-    Router.push("/login");
+    return logout();
   }
 
   return { token, accountId };
 };
 
-export const logout = () => {
-  cookie.remove("token");
-  cookie.remove("accountId");
-  // to support logging out from all windows
-  window.localStorage.setItem("logout", Date.now());
-  Router.push("/login");
-};
-
 export const withAuthSync = (WrappedComponent) => {
   const Wrapper = (props) => {
+    const [userProfile, setUserProfile] = useState({});
+
     const syncLogout = (event) => {
       if (event.key === "logout") {
         console.log("logged out from storage!");
@@ -61,42 +63,30 @@ export const withAuthSync = (WrappedComponent) => {
 
     useEffect(() => {
       window.addEventListener("storage", syncLogout);
+
+      const user = JSON.parse(window.localStorage.getItem("user"));
+      setUserProfile(user);
+
       return () => {
         window.removeEventListener("storage", syncLogout);
         window.localStorage.removeItem("logout");
       };
     }, []);
 
-    return <WrappedComponent {...props} />;
+    return <WrappedComponent {...props} user={userProfile} />;
   };
 
   Wrapper.getInitialProps = async (ctx) => {
     const payload = auth(ctx);
-    const { accountId, token } = payload;
 
-    const url = `${baseUrl}/user/${accountId}`;
+    let componentProps =
+      WrappedComponent.getInitialProps &&
+      (await WrappedComponent.getInitialProps(ctx));
 
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const {
-        data: { user },
-      } = await response.json();
-
-      let componentProps =
-        WrappedComponent.getInitialProps &&
-        (await WrappedComponent.getInitialProps(ctx));
-
-      return {
-        user,
-        payload,
-        ...componentProps,
-      };
-    } catch (error) {}
+    return {
+      payload,
+      ...componentProps,
+    };
   };
 
   return Wrapper;

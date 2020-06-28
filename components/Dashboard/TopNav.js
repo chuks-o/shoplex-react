@@ -7,8 +7,8 @@ const TopNav = (props) => {
   };
 
   return (
-    <nav className="sb-topnav navbar navbar-expand px-lg-5 border-bottom">
-      <a className="navbar-brand font-weight-bold text-primary">Shoplex</a>
+    <nav className="sb-topnav navbar bg-white navbar-expand px-lg-5 border-bottom">
+      <p className="navbar-brand font-weight-bold text-primary">Shoplex</p>
       <a
         className="order-4 ml-auto order-lg-0 d-block d-lg-none"
         id="sidebarToggle"
@@ -20,8 +20,14 @@ const TopNav = (props) => {
           <a className="nav-link font-weight-bold">Dashboard</a>
         </li>
       </ul>
+
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item dropdown">
+        <li className="d-flex flex-column my-auto">
+          <div className="">
+            <span className="d-lg-block d-none">{props.user.fullName}</span>
+          </div>
+        </li>
+        <li className="nav-item dropdown mx-3">
           <a
             className="nav-link dropdown-toggle"
             id="userDropdown"
@@ -30,8 +36,12 @@ const TopNav = (props) => {
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span className="text-dark mr-3">{props.user.fullName}</span>
-            <i className="far fa-user-circle "></i>
+            <img
+              src="/images/avatar-placeholder.png"
+              alt="Avatar"
+              className="avatar"
+              height="40px"
+            ></img>
           </a>
           <div
             className="dropdown-menu dropdown-menu-right"
@@ -49,6 +59,16 @@ const TopNav = (props) => {
           </div>
         </li>
       </ul>
+      <style jsx>{`
+        .avatar {
+          vertical-align: middle;
+          width: 40px !important;
+          height: 40px !important;
+          border-radius: 50% !important;
+          padding: 4px;
+          border: 1px solid #eee !important;
+        }
+      `}</style>
     </nav>
   );
 };

@@ -10,7 +10,7 @@ const SideNav = ({ user: { fullName }, ...props }) => {
         <div className="sb-sidenav-menu font-weight-bold">
           <div className="nav">
             <div className="sb-sidenav-menu-heading">Core</div>
-            {props.navButtons.map(button => (
+            {props.navButtons.map((button) => (
               <NavButton key={button.path} {...button} />
             ))}
           </div>
@@ -20,6 +20,12 @@ const SideNav = ({ user: { fullName }, ...props }) => {
           <strong>{fullName}</strong>
         </div>
       </nav>
+
+      <style jsx>{`
+        .sb-sidenav-menu {
+          background-color: #fff;
+        }
+      `}</style>
     </div>
   );
 };

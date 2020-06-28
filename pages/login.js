@@ -3,8 +3,8 @@ import fetch from "isomorphic-unfetch";
 import DefaultLayout from "../components/layouts/DefaultLayout";
 import { login } from "../utils/Auth";
 import { baseUrl } from "../utils/variables";
-
-// set up cookies
+import { toast } from "react-toastify";
+import { notify } from "../utils/RequestErrors";
 
 class Login extends Component {
   constructor(props) {
@@ -36,24 +36,17 @@ class Login extends Component {
         body: JSON.stringify(form),
       });
 
-      const { data, code, token } = await response.json();
+      const responseData = await response.json();
 
-      if (code === 200) {
+      if (responseData.code === 200) {
+        const { data, token } = responseData;
         const user = data.user;
         login({ token, user });
+      } else {
+        notify(responseData);
       }
     } catch (error) {
-      console.error(
-        "You have an error in your code or there are Network issues.",
-        error.response
-      );
-
-      // const { response } = error;
-      // setUserData(
-      //   Object.assign({}, userData, {
-      //     error: response ? response.statusText : error.message,
-      //   })
-      // )
+      toast.error("Network error: Kindly check your internet");
     }
 
     this.setState({ isLoading: false });
