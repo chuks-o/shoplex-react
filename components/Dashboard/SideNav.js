@@ -1,32 +1,74 @@
 import NavButton from "../layouts/Navigation/NavButton";
 
-const SideNav = ({ user: { fullName }, ...props }) => {
+const SideNav = ({ ...props }) => {
   return (
-    <div id="layoutSidenav_nav">
+    <>
       <nav
-        className="sb-sidenav accordion sb-sidenav-light border-right"
-        id="sidenavAccordion"
+        className="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white"
+        id="sidenav-main"
       >
-        <div className="sb-sidenav-menu font-weight-bold">
-          <div className="nav">
-            <div className="sb-sidenav-menu-heading">Core</div>
-            {props.navButtons.map((button) => (
-              <NavButton key={button.path} {...button} />
-            ))}
+        <div className="scroll-wrapper scrollbar-inner">
+          <div className="scrollbar-inner scroll-content scroll-scrolly_visible">
+            {/* <!-- Brand --> */}
+            <div className="sidenav-header align-items-center">
+              <a className="navbar-brand">
+                <img
+                  src="/images/Logo.png"
+                  className="navbar-brand-img"
+                  alt="Shoplex Logo"
+                />
+              </a>
+            </div>
+            <div className="navbar-inner">
+              {/* <!-- Collapse --> */}
+              <div
+                className="collapse navbar-collapse"
+                id="sidenav-collapse-main"
+              >
+                {/* <!-- Nav items --> */}
+                <ul className="navbar-nav">
+                  {props.navButtons.map((button) => (
+                    <NavButton key={button.path} button={button} />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="scroll-element scroll-x scroll-scrolly_visible">
+            <div className="scroll-element_outer">
+              <div className="scroll-element_size"></div>
+              <div className="scroll-element_track"></div>
+              <div className="scroll-bar scrollbar--nowidth"></div>
+            </div>
+          </div>
+          <div className="scroll-element scroll-y scroll-scrolly_visible">
+            <div className="scroll-element_outer">
+              <div className="scroll-element_size"></div>
+              <div className="scroll-element_track"></div>
+              <div className="scroll-bar"></div>
+            </div>
           </div>
         </div>
-        <div className="sb-sidenav-footer">
-          <div className="small">Logged in as:</div>
-          <strong>{fullName}</strong>
-        </div>
       </nav>
-
       <style jsx>{`
-        .sb-sidenav-menu {
-          background-color: #fff;
+        .scrollbar-inner {
+          height: auto;
+          margin-bottom: 0px;
+          margin-right: 0px;
+          max-height: 718px;
+        }
+        .scroll-wrapper {
+          position: relative;
+        }
+        .scroll-bar {
+          height: 681px;
+          top: 0px;
+        }
+        .scrollbar--nowidth {
+          width: 0px;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 

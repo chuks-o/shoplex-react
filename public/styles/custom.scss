@@ -48,14 +48,14 @@ select.form-control {
   font-size: 17px;
 }
 
-input.form-control:focus,
-textarea.form-control:focus,
-select.form-control:focus {
-  border: 2px solid $primary;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
+// input.form-control:focus,
+// textarea.form-control:focus,
+// select.form-control:focus {
+//   border: 2px solid $primary;
+//   -webkit-box-shadow: none;
+//   -moz-box-shadow: none;
+//   box-shadow: none;
+// }
 
 .card {
   &.border {
@@ -84,7 +84,7 @@ select.form-control:focus {
   background: #fff;
 }
 .bg-grey {
-  background: #f8f8f9;
+  background: #f8f9fe;
 }
 
 .light-grey {

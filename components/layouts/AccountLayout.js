@@ -7,9 +7,9 @@ import { useEffect } from "react";
 
 const AccountLayout = ({ children, ...props }) => {
   useEffect(() => {
-    document.querySelector("body").classList.add("sb-nav-fixed");
+    document.querySelector("body").classList.add("g-sidenav-show");
     return () => {
-      document.querySelector("body").classList.remove("sb-nav-fixed");
+      document.querySelector("body").classList.remove("g-sidenav-show");
     };
   }, []);
 
@@ -33,21 +33,41 @@ const AccountLayout = ({ children, ...props }) => {
 
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-        ></link>
-        <link rel="stylesheet" href="styles/styles.css"></link>
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+        />
+        <link
+          rel="stylesheet"
+          href="https://demos.creative-tim.com/argon-dashboard/assets/vendor/nucleo/css/nucleo.css"
+          type="text/css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://demos.creative-tim.com/argon-dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
+          type="text/css"
+        />
+        {/* <!-- Page plugins --> */}
+        {/* <!-- Argon CSS --> */}
+        {/* <link rel="stylesheet" href="/styles/styles.css" type="text/css"></link> */}
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        {/* <!-- Optional JS --> */}
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+        {/* <!-- Argon JS --> */}
+        <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/argon.min.js?v=1.2.0"></script>
       </Head>
 
       <>
-        <TopNav {...props} />
+        <SideNav {...props} navButtons={navButtons} />
 
-        <div id="layoutSidenav">
-          <SideNav {...props} navButtons={navButtons} />
+        <div className="main-content" id="panel">
+          <TopNav {...props} />
 
-          <div id="layoutSidenav_content">
-            <div>{children}</div>
-            <Footer />
-          </div>
+          <>{children}</>
+          {/* <Footer /> */}
         </div>
       </>
 
@@ -55,18 +75,47 @@ const AccountLayout = ({ children, ...props }) => {
         #layoutSidenav_content {
           background-color: #f8f9fa;
         }
+        /* Chart.js */
+        @keyframes chartjs-render-animation {
+          from {
+            opacity: 0.99;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        .chartjs-render-monitor {
+          animation: chartjs-render-animation 1ms;
+        }
+        .chartjs-size-monitor,
+        .chartjs-size-monitor-expand,
+        .chartjs-size-monitor-shrink {
+          position: absolute;
+          direction: ltr;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          overflow: hidden;
+          pointer-events: none;
+          visibility: hidden;
+          z-index: -1;
+        }
+        .chartjs-size-monitor-expand > div {
+          position: absolute;
+          width: 1000000px;
+          height: 1000000px;
+          left: 0;
+          top: 0;
+        }
+        .chartjs-size-monitor-shrink > div {
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          left: 0;
+          top: 0;
+        }
       `}</style>
-
-      <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"
-        crossOrigin="anonymous"
-      ></script>
-      <script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"
-        crossOrigin="anonymous"
-      ></script>
-
-      <script src="/scripts/sidebar.js"></script>
     </div>
   );
 };

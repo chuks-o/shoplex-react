@@ -20,7 +20,7 @@ const DefaultLayout = ({ children }) => {
           content="Shoplex, shoplex Nigeria, Buy anything in Nigeria, Supermart, One stop shop, buy cars in nigeria, electronics in nigeria, groceries in nigeria,"
         ></meta>
 
-        <meta itemprop="name" content="Shoplex"></meta>
+        <meta itemProp="name" content="Shoplex"></meta>
         <meta
           itemprop="description"
           content="Buy anything in Nigeria with confidence"
