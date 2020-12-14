@@ -8,9 +8,7 @@ import { useEffect } from "react";
 const AccountLayout = ({ children, ...props }) => {
   useEffect(() => {
     document.querySelector("body").classList.add("g-sidenav-show");
-    return () => {
-      document.querySelector("body").classList.remove("g-sidenav-show");
-    };
+    // document.querySelector("body").classList.add("g-sidenav-pinned");
   }, []);
 
   return (

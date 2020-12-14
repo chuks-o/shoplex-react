@@ -44,7 +44,7 @@ const ProductList = (props) => {
             <div className="d-flex flex-column h-100">
               <div className="d-flex align-items-start mb-0">
                 <Link href={`/products/${id}`} as={`/products/${id}/${slug}`}>
-                  <h6 className="text-dark product-title">{title}</h6>
+                  <h3 className="text-dark product-title">{title}</h3>
                 </Link>
                 <div className="ml-auto">
                   <ProductCondition {...props} />

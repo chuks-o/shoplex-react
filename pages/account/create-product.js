@@ -42,11 +42,10 @@ const CreateProduct = (props) => {
           <div className="col-lg-10">
             <div className="mb-4">
               <div className="d-flex align-items-center mb-2">
-                <h5 className="m-0 font-weight-bold">Create Product </h5>
+                <h2 className="m-0 font-weight-bold">Create Product </h2>
               </div>
-              <p className="small text-muted">
-                Publish a product you would love to sell, let's help you sell
-                it!. 🙂
+              <p className="">
+                Let's help you find a buyer for your product. 🙂
               </p>
             </div>
 

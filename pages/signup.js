@@ -1,6 +1,8 @@
 import { Component } from "react";
 import fetch from "isomorphic-unfetch";
 import DefaultLayout from "../components/layouts/DefaultLayout";
+import { baseUrl } from "../utils/variables";
+import Link from "next/link";
 
 class Signup extends Component {
   constructor(props) {
@@ -15,11 +17,11 @@ class Signup extends Component {
       phone: "",
       terms: "",
       password: "",
-      password_confirmation: ""
+      password_confirmation: "",
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
 
     this.setState({ isLoading: true });
@@ -31,15 +33,15 @@ class Signup extends Component {
         lastname: this.state.lastname,
         phone: this.state.phone,
         password: this.state.password,
-        password_confirmation: this.state.password
+        password_confirmation: this.state.password,
       };
 
-      const response = await fetch(`http://localhost:5000/auth/signup`, {
+      const response = await fetch(`${baseUrl}/auth/signup`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(form)
+        body: JSON.stringify(form),
       });
 
       const user = await response.json();
@@ -51,7 +53,7 @@ class Signup extends Component {
           firstname: "",
           lastname: "",
           password: "",
-          password_confirmation: ""
+          password_confirmation: "",
         });
         alert("User has been created successfully");
       }
@@ -71,13 +73,21 @@ class Signup extends Component {
           <div className="container">
             <div className="row signup-form ">
               <div className="col-lg-6 col-md-8 my-5 mx-auto">
+                <div className="text-center my-2">
+                  <span>
+                    Already have an account? &nbsp;
+                    <Link href="/login">
+                      <a>Login</a>
+                    </Link>
+                  </span>
+                </div>
                 <div className="card shadow-sm border-0">
                   <div className="card-body p-0">
-                    <div className="p-lg-5 p-3">
-                      <div className="d-flex align-items-center justify-content-center pb-5">
-                        <h5 className="text-center m-0 p-0 font-weight-bold">
+                    <div className="p-lg-5 p-4">
+                      <div className="d-flex align-items-center justify-content-center pb-4">
+                        <h3 className="text-center m-0 p-0 font-weight-bold">
                           Create an account
-                        </h5>
+                        </h3>
                       </div>
 
                       <form onSubmit={this.handleSubmit}>
@@ -190,7 +200,7 @@ class Signup extends Component {
                           </label>
                         </div>
 
-                        <div className="form-group">
+                        <div className="form-group mt-4">
                           <button
                             className="btn btn-primary font-weight-bold"
                             type="submit"

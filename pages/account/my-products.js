@@ -46,7 +46,7 @@ const MyProducts = (props) => {
   return (
     <AccountLayout {...props}>
       <div className="container mt-5">
-        <h5 className="font-weight-bold mb-4">My Products</h5>
+        <h2 className="font-weight-bold mb-4">My Products</h2>
         <div className="card shadow-sm border-0 my-3">
           <div className="card-body p-0">
             <nav>

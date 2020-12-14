@@ -4,49 +4,58 @@ import { moneyFormat } from "../../utils/filters";
 const ProductList = ({ id, title, price, uploads, state, lga, slug }) => {
   return (
     <div className="col-lg-4 col-md-6 mb-4">
-      <div className="card shadow-sm border-0 h-100">
-        <a href="#">
-          {uploads.length > 0 ? (
-            <img
-              className="img-fluid"
-              src={uploads[0]["filename"]}
-              alt="product-image"
-            />
-          ) : (
-            <img
-              className="img-fluid"
-              src="/images/image-placeholder.jpg"
-              alt="product-image"
-            />
-          )}
-        </a>
-        <div className="card-body pb-0">
-          <h6 className="card-title">
-            <Link href={`/products/${id}`} as={`/products/${id}/${slug}`}>
-              <a className="font-weight-normal text-dark">{title}</a>
-            </Link>
-          </h6>
-          <h6 className="text-primary font-weight-bold">
-            {moneyFormat(price)}
-          </h6>
-        </div>
-        <div className="card-footer py-2 border-0 mb-1 bg-white">
-          <div className="d-flex">
-            <p className="my-0 small text-muted" aria-label="location">
-              <span className="fas fa-map-marker-alt"></span> {lga.name},{" "}
-              {state.name} State
-            </p>
-            <a
-              href="#"
-              className="ml-auto text-muted ft-14"
-              title="Add to wishlist"
-            >
-              <span className="far fa-star text-secondary"></span>
-              {/* Add to Wishlist */}
-            </a>
-          </div>
-        </div>
+      <div className="card  shadow-sm border br-10 h-100">
+        <Link
+          href={`/products/${id}`}
+          className="m-0 p-0"
+          as={`/products/${id}/${slug}`}
+        >
+          <a>
+            <div className="m-0 p-0">
+              <div className="product_image m-0 p-0">
+                {uploads.length > 0 ? (
+                  <img
+                    className=""
+                    src={uploads[0]["filename"]}
+                    alt="product image"
+                    height="250px"
+                    width="100%"
+                  />
+                ) : (
+                  <img
+                    className="img-fluid"
+                    src="/images/image-placeholder.jpg"
+                    alt="product-image"
+                  />
+                )}
+              </div>
+              <div className="card-body pb-0">
+                <h4 className="card-title mb-2">
+                  <a className="font-weight-normal text-dark">{title}</a>
+                </h4>
+                <h5 className="text-primary font-weight-bold">
+                  {moneyFormat(price)}
+                </h5>
+                <div className="">
+                  <p
+                    className="my-0 p-0 small text-muted"
+                    aria-label="location"
+                  >
+                    <span className="fas fa-map-marker-alt text-secondary mr-1"></span>{" "}
+                    {lga.name}, {state.name}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </Link>
       </div>
+
+      <style jsx global>{`
+        .product_image img {
+          object-fit: cover;
+        }
+      `}</style>
     </div>
   );
 };

@@ -2,11 +2,11 @@ import Link from "next/link";
 import { withRouter } from "next/router";
 
 const NavButton = (props) => {
-  const { button } = props;
+  const { button, closeNav } = props;
   const activeRoute = props.router.pathname === button.path ? "active" : "";
 
   return (
-    <li className="nav-item">
+    <li className="nav-item" onClick={() => closeNav()}>
       <Link href={button.path}>
         <a className={`nav-link ${activeRoute}`}>
           <i className={button.icon}></i>

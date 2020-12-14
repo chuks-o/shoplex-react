@@ -6,6 +6,11 @@ const TopNav = (props) => {
     logout();
   };
 
+  const toggleSideNav = () => {
+    document.querySelector("body").classList.toggle("g-sidenav-hidden");
+    document.querySelector("body").classList.toggle("g-sidenav-pinned");
+  };
+
   return (
     <>
       <nav className="navbar navbar-top navbar-expand navbar-dark bg-grey border-bottom">
@@ -42,14 +47,15 @@ const TopNav = (props) => {
             </form>
             {/* <!-- Navbar links --> */}
             <ul className="navbar-nav align-items-center ml-md-auto">
-              <li className="nav-item d-xl-none">
+              <li className="nav-item d-lg-none">
                 {/* <!-- Sidenav toggler --> */}
                 <div
-                  className="pr-3 sidenav-toggler sidenav-toggler-dark"
+                  className="pr-3 text-dark sidenav-toggler sidenav-toggler-light"
                   data-action="sidenav-pin"
                   data-target="#sidenav-main"
+                  onClick={() => toggleSideNav()}
                 >
-                  <div className="sidenav-toggler-inner">
+                  <div className="sidenav-toggler-inner text-dark">
                     <i className="sidenav-toggler-line"></i>
                     <i className="sidenav-toggler-line"></i>
                     <i className="sidenav-toggler-line"></i>
@@ -63,7 +69,7 @@ const TopNav = (props) => {
                   data-action="search-show"
                   data-target="#navbar-search-main"
                 >
-                  <i className="ni ni-zoom-split-in"></i>
+                  <i className="ni ni-zoom-split-in text-dark"></i>
                 </a>
               </li>
             </ul>
@@ -96,7 +102,7 @@ const TopNav = (props) => {
                     <i className="ni ni-single-02"></i>
                     <span>My profile</span>
                   </a>
-                  <a href="#!" className="dropdown-item">
+                  {/* <a href="#!" className="dropdown-item">
                     <i className="ni ni-settings-gear-65"></i>
                     <span>Settings</span>
                   </a>
@@ -107,7 +113,7 @@ const TopNav = (props) => {
                   <a href="#!" className="dropdown-item">
                     <i className="ni ni-support-16"></i>
                     <span>Support</span>
-                  </a>
+                  </a> */}
                   <div className="dropdown-divider"></div>
                   <a onClick={() => logout()} className="dropdown-item">
                     <i className="ni ni-user-run"></i>

@@ -18,7 +18,7 @@ const ProductCategories = (props) => {
   return (
     <div>
       {categories && (
-        <ul className="list-group list-group-flush">
+        <ul className="list-group list-group-flush border">
           {categories.map(({ id, title }) => (
             <li
               key={id}

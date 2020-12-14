@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => (
   <div className="fixed-top">
-    {/* <div className="d-flex align-items-center sticky-top justify-content-center navbar-notice">
+    <div className="d-flex align-items-center justify-content-center navbar-notice">
       <div className="container text-muted text-center">
         <div className="d-flex justify-content-center">
           <a href="">
@@ -19,12 +19,19 @@ const Navbar = () => (
           </a>
         </div>
       </div>
-    </div> */}
+    </div>
 
     <nav className="navbar main-nav navbar-expand-lg navbar-expand-sm navbar-light border-bottom">
-      <div className="container">
+      <div className="container py-2">
         <Link href="/">
-          <a className="navbar-brand font-weight-bold text-primary">Shoplex</a>
+          <a>
+            <img
+              src="/images/Logo.png"
+              className="navbar-brand-img"
+              alt="Shoplex Logo"
+              width="100px"
+            />
+          </a>
         </Link>
         <button
           className="navbar-toggler border-0"
@@ -575,7 +582,7 @@ const Navbar = () => (
           <div>
             <Link href="/signup">
               <button className="btn btn-primary font-weight-bold">
-                Sell It Now
+                Start Selling
               </button>
             </Link>
           </div>

@@ -32,7 +32,7 @@
   --light: #ced4da;
   --lighter: #e9ecef;
   --primary: #00bdaa;
-  --secondary: #f7fafc;
+  --secondary: #fe346e;
   --success: #2dce89;
   --info: #11cdef;
   --warning: #fb6340;
@@ -169,7 +169,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: #233dd2;
+  color: var(--green);
 }
 a:not([href]) {
   text-decoration: none;
@@ -1877,7 +1877,7 @@ pre code {
   height: calc(1.5em + 1.25rem + 2px);
   padding: 0.625rem 0.75rem;
   transition: all 0.15s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  color: #8898aa;
+  color: #262a2e;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   background-color: #fff;
@@ -1898,7 +1898,7 @@ pre code {
   text-shadow: 0 0 0 #8898aa;
 }
 .form-control:focus {
-  color: #8898aa;
+  color: #383f46;
   border-color: #00bdaa;
   outline: 0;
   background-color: #fff;
@@ -1906,7 +1906,7 @@ pre code {
 }
 .form-control::-ms-input-placeholder {
   opacity: 1;
-  color: #adb5bd;
+  color: #383f46;
 }
 .form-control::placeholder {
   opacity: 1;
@@ -1918,7 +1918,7 @@ pre code {
   background-color: #e9ecef;
 }
 select.form-control:focus::-ms-value {
-  color: #8898aa;
+  color: #383f46;
   background-color: #fff;
 }
 .form-control-file,
@@ -2385,9 +2385,8 @@ fieldset:disabled a.btn {
   box-shadow: none, 0 0 0 0 rgba(94, 114, 228, 0.5);
 }
 .btn-secondary {
-  color: #212529;
-  border-color: #f7fafc;
-  background-color: #f7fafc;
+  color: #fff;
+  background-color: var(--secondary);
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .btn-secondary:hover {
@@ -4275,6 +4274,7 @@ input[type="submit"].btn-block {
 .navbar-toggler:focus,
 .navbar-toggler:hover {
   text-decoration: none;
+  outline: none;
 }
 .navbar-toggler-icon {
   display: inline-block;
@@ -4907,7 +4907,7 @@ a.badge:hover {
 }
 .badge-secondary {
   color: #cfe3f1;
-  background-color: #fff;
+  background-color: var(--secondary);
 }
 .badge-secondary[href]:focus,
 .badge-secondary[href]:hover {
@@ -12170,7 +12170,7 @@ a.text-primary:hover {
   color: #233dd2 !important;
 }
 .text-secondary {
-  color: #f7fafc !important;
+  color: var(--secondary) !important;
 }
 a.text-secondary:focus,
 a.text-secondary:hover {
@@ -13829,10 +13829,10 @@ a.btn-icon-only {
   }
 }
 .form-control:focus::-ms-input-placeholder {
-  color: #adb5bd;
+  color: #383f46;
 }
 .form-control:focus::placeholder {
-  color: #adb5bd;
+  color: #383f46;
 }
 .form-control-lg {
   height: calc(2.25em + 1.25rem + 5px);
@@ -21634,4 +21634,7 @@ pre > code.highlight {
 }
 .ct-footer-links li + li {
   margin-left: 1rem;
+}
+.br-10 {
+  border-radius: 10px;
 }

@@ -16,12 +16,12 @@ const SearchProduct = () => {
         <div className="col-md-6 mx-auto">
           <div className="">
             <div className="d-flex align-items-center justify-content-center mb-2">
-              <h6>
+              <h5>
                 <span className="fas fa-map-marker-alt"></span> &nbsp; Find
                 anything in{" "}
                 <span className="badge badge-secondary btn-lg"> Nigeria</span>{" "}
                 🇳🇬
-              </h6>
+              </h5>
             </div>
 
             <form className="w-100">
@@ -31,7 +31,7 @@ const SearchProduct = () => {
                   name="search"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="form-control searchInput"
+                  className="form-control searchInput br-10"
                   placeholder="Search For Goods"
                   aria-label="Search For Goods"
                   aria-describedby="button-addon2"
@@ -58,8 +58,9 @@ const SearchProduct = () => {
       <style jsx>{`
         .jumbotron {
           height: 260px;
-          background: #f8f8f9;
+          display: block;
           padding: 0;
+          margin-top: 95px;
           border-bottom: 1px solid #e4e8ec;
         }
         form input.search {

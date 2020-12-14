@@ -11,17 +11,17 @@ const Home = ({ products, categories }) => {
       <div className="homepage--container">
         <SearchProduct />
 
-        <div className="container index--body bg-white">
+        <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="card border mb-3">
+              <div className="card shadow border br-10 mb-3">
                 <div className="card-body">
                   <div className="d-md-flex align-items-center">
-                    <h5 className="font-weight-bold mb-2 mb-md-0">
+                    <h3 className="font-weight-bold mb-2 mb-md-0">
                       Trade with total confidence on Shoplex
-                    </h5>
+                    </h3>
                     <a
-                      className="text-secondary font-weight-bold ml-auto "
+                      className="text-primary font-weight-bold ml-auto "
                       href="#"
                     >
                       Learn how{" "}
@@ -33,17 +33,17 @@ const Home = ({ products, categories }) => {
 
               <div className="row mt-5">
                 <div className="col-lg-3 col-md-4 mb-5">
-                  <div className="rounded mb-2 p-3 bg-primary">
-                    <h5 className="m-0 font-weight-bold text-white">
+                  <div className="br-10 mb-2 p-3 bg-primary">
+                    <h3 className="m-0 font-weight-bold text-white">
                       Categories
-                    </h5>
+                    </h3>
                   </div>
                   <ProductCategories categories={categories} />
                 </div>
                 <div className="col-lg-9 col-md-8">
                   <div className="row mb-2">
                     <div className="col-md-12">
-                      <h5 className="font-weight-bold text-muted">Trending</h5>
+                      <h3 className="font-weight-bold text-muted">Trending</h3>
                     </div>
                   </div>
                   <div className="row">
